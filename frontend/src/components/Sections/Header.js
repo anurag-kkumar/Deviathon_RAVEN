@@ -214,10 +214,10 @@ const Header = ({ darkMode, setDarkMode, user, onLogout }) => {
             className="flex items-center space-x-3 cursor-pointer"
             onClick={() => navigate('/')}
           >
-            <div className="w-10 h-10 bg-gradient-to-r from-purple-500 to-blue-500 rounded-xl flex items-center justify-center">
-              <span className="text-white font-bold text-lg">R</span>
+            <div className="w-10 h-10 bg-gradient-to-r from-purple-500 to-blue-500 flex items-center justify-center" style={{ borderRadius: '25%' }}>
+              <img src="https://i.postimg.cc/9QK2sdm4/Whats-App-Image-2025-10-09-at-22-04-35-d755a2a6.jpg" alt="Logo" className="w-13 h-13 object-cover border-2 border-white" style={{ borderRadius: '25%' }} />
             </div>
-            <span className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
+            <span className="text-2xl font-bold text-gray-500">
               RAVEN
             </span>
           </motion.div>
