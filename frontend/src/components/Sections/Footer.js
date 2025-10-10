@@ -133,7 +133,7 @@ const Footer = () => {
             whileInView={{ opacity: 1 }}
             className="text-gray-400 text-sm"
           >
-            © 2024 Raven. All rights reserved.
+            © 2025 Raven. All rights reserved.
           </motion.p>
 
           <motion.div
@@ -142,7 +142,7 @@ const Footer = () => {
             transition={{ delay: 0.2 }}
             className="flex items-center space-x-6 text-sm text-gray-400"
           >
-            <span>Made with ❤️ for influencers and brands</span>
+            <span>Made for Brands and Influencers</span>
             <motion.button
               onClick={scrollToTop}
               whileHover={{ scale: 1.05 }}
