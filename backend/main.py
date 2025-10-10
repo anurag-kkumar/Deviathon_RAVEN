@@ -6,7 +6,7 @@ import datetime
 app = Flask(__name__)
 CORS(app)
 
-API_KEY = "AIzaSyDfQ4hD_2Ex13JfmsXOFGzhYACoIdswxyQ"
+API_KEY = "AIzaSyBQCTtatThezLd5Cy3lwjFxDTHiWLaLqAA"
 
 # In-memory data stores
 influencers_data = [
@@ -348,4 +348,5 @@ def export_analytics():
     }
 
 if __name__ == '__main__':
+
     app.run(port=5000, debug=True)
