@@ -9,35 +9,35 @@ const Footer = () => {
 
   const links = {
     product: [
-      { name: 'Features', href: '#features' },
-      { name: 'Pricing', href: '#pricing' },
-      { name: 'API', href: '#api' },
-      { name: 'Integrations', href: '#integrations' }
+      { name: 'Features', href: 'https://raven.ai/features' },
+      { name: 'Pricing', href: 'https://raven.ai/pricing' },
+      { name: 'API', href: 'https://raven.ai/docs/api' },
+      { name: 'Integrations', href: 'https://raven.ai/integrations' }
     ],
     company: [
-      { name: 'About', href: '#about' },
-      { name: 'Blog', href: '#blog' },
-      { name: 'Careers', href: '#careers' },
-      { name: 'Contact', href: '#contact' }
+      { name: 'About', href: 'https://raven.ai/about' },
+      { name: 'Blog', href: 'https://raven.ai/blog' },
+      { name: 'Careers', href: 'https://raven.ai/careers' },
+      { name: 'Contact', href: 'https://raven.ai/contact' }
     ],
     resources: [
-      { name: 'Documentation', href: '#docs' },
-      { name: 'Help Center', href: '#help' },
-      { name: 'Community', href: '#community' },
-      { name: 'Partners', href: '#partners' }
+      { name: 'Documentation', href: 'https://raven.ai/docs' },
+      { name: 'Help Center', href: 'https://raven.ai/help' },
+      { name: 'Community', href: 'https://community.raven.ai' },
+      { name: 'Partners', href: 'https://raven.ai/partners' }
     ],
     legal: [
-      { name: 'Privacy', href: '#privacy' },
-      { name: 'Terms', href: '#terms' },
-      { name: 'Security', href: '#security' }
+      { name: 'Privacy', href: 'https://raven.ai/privacy' },
+      { name: 'Terms', href: 'https://raven.ai/terms' },
+      { name: 'Security', href: 'https://raven.ai/security' }
     ]
   };
 
   const socialLinks = [
-    { icon: Twitter, href: '#', label: 'Twitter' },
-    { icon: Linkedin, href: '#', label: 'LinkedIn' },
-    { icon: Github, href: '#', label: 'GitHub' },
-    { icon: Mail, href: '#', label: 'Email' }
+    { icon: Twitter, href: 'https://twitter.com/raventeam', label: 'Twitter' },
+    { icon: Linkedin, href: 'https://www.linkedin.com/in/aditya-verma-2a3915289/', label: 'LinkedIn' },
+    { icon: Github, href: 'https://github.com/AdityaTech-Pro', label: 'GitHub' },
+    { icon: Mail, href: '9905adityaverma@gmail.com', label: 'Email' }
   ];
 
   return (
@@ -87,6 +87,8 @@ const Footer = () => {
                 <motion.a
                   key={social.label}
                   href={social.href}
+                  target={social.href.startsWith('mailto:') ? undefined : '_blank'}
+                  rel={social.href.startsWith('mailto:') ? undefined : 'noopener noreferrer'}
                   whileHover={{ scale: 1.1, y: -2 }}
                   whileTap={{ scale: 0.95 }}
                   className="w-10 h-10 bg-white/5 rounded-xl border border-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:border-white/20 transition-all duration-300"
@@ -116,6 +118,8 @@ const Footer = () => {
                   >
                     <a
                       href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="text-gray-400 hover:text-white transition-colors duration-300 text-sm"
                     >
                       {link.name}
