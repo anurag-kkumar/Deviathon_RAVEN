@@ -60,13 +60,13 @@ const Signup = () => {
 
       if (response.ok) {
         const data = await response.json();
-        
+
         // Save token and user data to localStorage
         localStorage.setItem('token', data.token);
         localStorage.setItem('user', JSON.stringify(data.user));
-        
-        // Redirect to dashboard
-        navigate('/dashboard');
+
+        // Redirect to login page after signup
+        navigate('/login');
       } else {
         const errorData = await response.json();
         setErrors({ submit: errorData.message || 'Signup failed' });
@@ -75,7 +75,7 @@ const Signup = () => {
       console.error('Signup error:', error);
       setErrors({ submit: 'Network error. Please try again.' });
       
-      // Demo purpose - even if API fails, simulate success
+      // Demo purpose - even if API fails, simulate success and redirect to login
       const demoUser = {
         id: 1,
         name: formData.fullName,
@@ -84,7 +84,7 @@ const Signup = () => {
       };
       localStorage.setItem('token', 'demo-token');
       localStorage.setItem('user', JSON.stringify(demoUser));
-      navigate('/dashboard');
+      navigate('/login');
     } finally {
       setLoading(false);
     }
@@ -220,7 +220,7 @@ const Signup = () => {
                   aria-label={showPassword ? 'Hide password' : 'Show password'}
                   className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
                 >
-                  {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
+                  {showPassword ? <Eye className="w-5 h-5" /> : <EyeOff className="w-5 h-5" />}
                 </button>
               </div>
               {errors.password && (
@@ -251,7 +251,7 @@ const Signup = () => {
                   aria-label={showConfirmPassword ? 'Hide confirm password' : 'Show confirm password'}
                   className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
                 >
-                  {/* {showConfirmPassword ? <Eyeoff className="w-5 h-5" /> : <Eye className="w-5 h-5" />} */}
+                  {showConfirmPassword ? <Eye className="w-5 h-5" /> : <EyeOff className="w-5 h-5" />} 
                 </button>
               </div>
               {errors.confirmPassword && (
