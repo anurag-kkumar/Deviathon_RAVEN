@@ -9,6 +9,7 @@ const Login = () => {
     email: '',
     password: ''
   });
+  // password is masked (dots) by default; toggling will reveal text
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState({});
@@ -52,8 +53,8 @@ const Login = () => {
         localStorage.setItem('token', data.token);
         localStorage.setItem('user', JSON.stringify(data.user));
         
-        // Redirect to dashboard
-        navigate('/dashboard');
+  // Redirect to Home
+  navigate('/');
       } else {
         const errorData = await response.json();
         setErrors({ submit: errorData.message || 'Login failed' });
@@ -69,9 +70,9 @@ const Login = () => {
         email: formData.email,
         company: 'Demo Company'
       };
-      localStorage.setItem('token', 'demo-token');
-      localStorage.setItem('user', JSON.stringify(demoUser));
-      navigate('/dashboard');
+  localStorage.setItem('token', 'demo-token');
+  localStorage.setItem('user', JSON.stringify(demoUser));
+  navigate('/');
     } finally {
       setLoading(false);
     }
@@ -157,7 +158,8 @@ const Login = () => {
                 />
                 <button
                   type="button"
-                  onClick={() => setShowPassword(!showPassword)}
+                  onClick={() => setShowPassword((s) => !s)}
+                  aria-label={showPassword ? 'Hide password' : 'Show password'}
                   className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
                 >
                   {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
